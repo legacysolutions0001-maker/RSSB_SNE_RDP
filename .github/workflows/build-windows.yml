@@ -16,36 +16,111 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Remove workspace-only dependency
-        working-directory: artifacts/rssb-ams
+      # ── Patch workspace + package.json for Windows ──────────────────────────
+      # pnpm-workspace.yaml was written for Replit Linux:
+      #   • overrides exclude all win32 native binaries (esbuild, rollup, etc.)
+      #   • minimumReleaseAge blocks packages published < 24 h ago
+      # package.json uses pnpm-specific "catalog:" version aliases and
+      # "workspace:*" protocol that npm cannot resolve.
+      # This step rewrites both files so pnpm can install on Windows.
+      - name: Patch workspace for Windows
         shell: node {0}
         run: |
           const fs = require('fs');
-          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+
+          // ── 1. Patch pnpm-workspace.yaml ───────────────────────────────────
+          let yaml = fs.readFileSync('pnpm-workspace.yaml', 'utf8');
+
+          // Remove lines that exclude windows-only native binaries
+          // (they were added so Replit Linux doesn't download unused win32 blobs)
+          yaml = yaml.split('\n').filter(line => {
+            const l = line.trim();
+            return !(
+              l.includes('win32') ||
+              l.includes('win-') ||
+              l.includes('msvc') ||
+              l.startsWith('minimumReleaseAge:') ||
+              l.startsWith('minimumReleaseAgeExclude:')
+            );
+          }).join('\n');
+
+          // Remove any orphaned "  - ..." lines under minimumReleaseAgeExclude
+          // by collapsing consecutive blank lines
+          yaml = yaml.replace(/\n{3,}/g, '\n\n');
+
+          fs.writeFileSync('pnpm-workspace.yaml', yaml);
+          console.log('✓ pnpm-workspace.yaml patched');
+
+          // ── 2. Patch artifacts/rssb-ams/package.json ──────────────────────
+          // Replace pnpm catalog: aliases with real semver versions
+          // (taken from the catalog block in pnpm-workspace.yaml)
+          const catalog = {
+            '@replit/vite-plugin-cartographer':    '^0.5.21',
+            '@replit/vite-plugin-dev-banner':      '^0.1.1',
+            '@replit/vite-plugin-runtime-error-modal': '^0.0.6',
+            '@tailwindcss/vite':                   '^4.1.14',
+            '@tanstack/react-query':               '^5.90.21',
+            '@types/node':                         '^25.3.3',
+            '@types/react':                        '^19.2.0',
+            '@types/react-dom':                    '^19.2.0',
+            '@vitejs/plugin-react':                '^5.0.4',
+            'class-variance-authority':            '^0.7.1',
+            'clsx':                                '^2.1.1',
+            'framer-motion':                       '^12.23.24',
+            'lucide-react':                        '^0.545.0',
+            'react':                               '19.1.0',
+            'react-dom':                           '19.1.0',
+            'tailwind-merge':                      '^3.3.1',
+            'tailwindcss':                         '^4.1.14',
+            'vite':                                '^7.3.2',
+            'wouter':                              '^3.3.5',
+            'zod':                                 '^3.25.76',
+          };
+
+          const pkgPath = 'artifacts/rssb-ams/package.json';
+          const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+
+          // Replace catalog: aliases
+          for (const section of ['dependencies', 'devDependencies']) {
+            if (!pkg[section]) continue;
+            for (const [name, ver] of Object.entries(pkg[section])) {
+              if (ver === 'catalog:' && catalog[name]) {
+                pkg[section][name] = catalog[name];
+              }
+            }
+          }
+
+          // Remove workspace:* dep (never actually imported in source)
           delete pkg.devDependencies['@workspace/api-client-react'];
-          // On Windows signAndEditExecutable works fine — re-enable icon embedding
+
+          // On Windows, icon embedding works natively — re-enable it
           pkg.build.win.signAndEditExecutable = true;
-          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
-          console.log('package.json patched for Windows build');
+
+          fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+          console.log('✓ package.json patched');
 
       - name: Install dependencies
-        working-directory: artifacts/rssb-ams
-        run: npm install --legacy-peer-deps
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build Vite production bundle
         working-directory: artifacts/rssb-ams
-        run: npm run build
+        run: pnpm run build
         env:
           NODE_ENV: production
 
       - name: Build Windows NSIS installer
         working-directory: artifacts/rssb-ams
-        run: npm exec -- electron-builder build --win --x64
+        run: pnpm exec electron-builder build --win --x64
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
           CSC_LINK: ""
@@ -61,24 +136,24 @@ jobs:
           path: artifacts/rssb-ams/release/*.exe
           retention-days: 90
 
-      - name: Publish GitHub Release
+      - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
           tag_name: windows-latest
           name: "RSSB SNE AMS — Windows Installer (Latest)"
           body: |
             ## RSSB SNE Accommodation Management System
-            **Auto-built Windows installer from the latest source.**
+            **Auto-built Windows installer — always up to date.**
 
             ### How to install
             1. Download the `.exe` file below
-            2. Run it — click *Next* through the wizard
+            2. Run it and click *Next* through the wizard
             3. Launch **RSSB SNE AMS** from the Desktop or Start Menu
 
-            ### Login
-            | Field | Value |
-            |-------|-------|
-            | Username | `bhagwan01` |
+            ### Login credentials
+            | Field    | Value        |
+            |----------|-------------|
+            | Username | `bhagwan01`  |
             | Password | `Bhagwan_01` |
           files: artifacts/rssb-ams/release/*.exe
           make_latest: true
