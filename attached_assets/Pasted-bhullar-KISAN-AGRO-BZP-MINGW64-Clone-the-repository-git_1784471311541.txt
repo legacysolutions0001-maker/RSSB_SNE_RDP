@@ -1,0 +1,148 @@
+bhullar@KISAN_AGRO_BZP MINGW64 ~
+$ # Clone the repository
+git clone https://github.com/legacysolutions0001-maker/RSSB_SNE_RDP.git
+
+# Go to the project
+cd RSSB_SNE_RDP
+
+# Install dependencies
+pnpm install --no-frozen-lockfile
+
+# Go to the Electron app
+cd artifacts/rssb-ams
+
+# Build the React/Vite application
+pnpm run build
+
+# Package the Windows application
+pnpm exec electron-builder build --win --x64
+Cloning into 'RSSB_SNE_RDP'...
+remote: Enumerating objects: 315, done.
+remote: Counting objects: 100% (315/315), done.
+remote: Compressing objects: 100% (221/221), done.
+remote: Total 315 (delta 94), reused 285 (delta 74), pack-reused 0 (from 0)
+Receiving objects: 100% (315/315), 781.07 KiB | 2.88 MiB/s, done.
+Resolving deltas: 100% (94/94), done.
+Scope: all 9 workspace projects
+Lockfile is up to date, resolution step is skipped
+Packages: +835
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ WARN  Tarball download average speed 1 KiB/s (size 1 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.7.tgz (GET)
+ WARN  Tarball download average speed 9 KiB/s (size 23 KiB) is below 50 KiB/s: https://registry.npmjs.org/react/-/react-19.1.0.tgz (GET)
+ WARN  Tarball download average speed 33 KiB/s (size 92 KiB) is below 50 KiB/s: https://registry.npmjs.org/@hookform/resolvers/-/resolvers-3.10.0.tgz (GET)
+ WARN  Tarball download average speed 9 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz (GET)
+Downloading firebase@12.16.0: 8.27 MB/8.27 MB, done
+Downloading @firebase/firestore@4.16.0: 11.07 MB/11.07 MB, done
+ WARN  Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz (GET)
+ WARN  9 other warnings
+Downloading 7zip-bin@5.2.0: 5.63 MB/5.63 MB, done
+ WARN  GET https://registry.npmjs.org/temp-file/-/temp-file-3.4.0.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/stat-mode/-/stat-mode-1.0.0.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/chromium-pickle-js/-/chromium-pickle-js-0.2.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/glob/-/glob-10.5.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/config-file-ts/-/config-file-ts-0.2.8-rc1.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/foreground-child/-/foreground-child-3.3.1.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/jackspeak/-/jackspeak-3.4.3.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.2.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz error (ETIMEDOUT). Will retry in 10 seconds. 2 retries left.
+ WARN  GET https://registry.npmjs.org/temp-file/-/temp-file-3.4.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/stat-mode/-/stat-mode-1.0.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/chromium-pickle-js/-/chromium-pickle-js-0.2.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/glob/-/glob-10.5.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/config-file-ts/-/config-file-ts-0.2.8-rc1.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/foreground-child/-/foreground-child-3.3.1.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/jackspeak/-/jackspeak-3.4.3.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+ WARN  GET https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz error (ETIMEDOUT). Will retry in 1 minute. 1 retries left.
+Downloading app-builder-bin@5.0.0-alpha.10: 72.51 MB/72.51 MB, done
+Downloading react-icons@5.7.0: 22.77 MB/22.77 MB, done
+Progress: resolved 835, reused 0, downloaded 835, added 835, done
+node_modules/.pnpm/electron@36.9.5/node_modules/electron: Running postinstall script, done in 16.1s
+node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild: Running postinstall script, done in 27.1s
+
+dependencies:
++ @replit/connectors-sdk 0.4.1
+
+devDependencies:
++ prettier 3.9.5
++ typescript 5.9.3
+
+. preinstall$ sh -c 'rm -f package-lock.json yarn.lock; case "$npm_config_user_agent" in pnpm/*) ;; *) echo "Use pnpm instead" >&2; exit 1 ;; esac'
+└─ Done in 936ms
+╭ Warning ───────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                            │
+│   Ignored build scripts: @firebase/util@1.15.1, core-js@3.49.0, protobufjs@7.6.5.          │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.   │
+│                                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────╯
+Done in 10m 32.8s using pnpm v10.34.5
+
+> @workspace/rssb-ams@1.0.0 build C:\Users\bhullar\RSSB_SNE_RDP\artifacts\rssb-ams
+> vite build --config vite.config.ts
+
+C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js:121
+                throw new Error(
+                      ^
+
+Error: Cannot find module @rollup/rollup-win32-x64-msvc. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js:121:9)
+    at Object.<anonymous> (C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js:130:76)
+    ... 3 lines matching cause stack trace ...
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at cjsLoader (node:internal/modules/esm/translators:298:15)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:240:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:325:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:606:24) {
+  [cause]: Error: Cannot find module '@rollup/rollup-win32-x64-msvc'
+  Require stack:
+  - C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+      at Module._load (node:internal/modules/cjs/loader:1038:27)
+      at Module.require (node:internal/modules/cjs/loader:1289:19)
+      at require (node:internal/modules/helpers:182:18)
+      at requireWithFriendlyError (C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js:103:10)
+      at Object.<anonymous> (C:\Users\bhullar\RSSB_SNE_RDP\node_modules\.pnpm\rollup@4.62.2\node_modules\rollup\dist\native.js:130:76)
+      at Module._compile (node:internal/modules/cjs/loader:1521:14)
+      at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+      at Module.load (node:internal/modules/cjs/loader:1266:32)
+      at Module._load (node:internal/modules/cjs/loader:1091:12) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\bhullar\\RSSB_SNE_RDP\\node_modules\\.pnpm\\rollup@4.62.2\\node_modules\\rollup\\dist\\native.js'
+    ]
+  }
+}
+
+Node.js v20.20.0
+ ELIFECYCLE  Command failed with exit code 1.
+  • electron-builder  version=25.1.8 os=10.0.26200
+  • loaded configuration  file=package.json ("build" field)
+  • writing effective config  file=release\builder-effective-config.yaml
+┌────────────────────────────────────────────┐
+│ New version of electron-builder available! │
+│ Current Version: 25.1.8                    │
+│ Latest Version: 26.15.3                    │
+└────────────────────────────────────────────┘
+  • executing @electron/rebuild  electronVersion=36.9.5 arch=x64 buildFromSource=false appDir=./
+  • installing native dependencies  arch=x64
+  • completed installing native dependencies
+  • packaging       platform=win32 arch=x64 electron=36.9.5 appOutDir=release\win-unpacked
+  • updating asar integrity executable resource  executablePath=release\win-unpacked\RSSB SNE Accommodation Management System.exe
+  • building        target=nsis file=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe archs=x64 oneClick=false perMachine=false
+  • signing with signtool.exe  path=release\__uninstaller-nsis-@workspacerssb-ams.exe
+  • no signing info identified, signing is skipped  signHook=false cscInfo=null
+  • signing with signtool.exe  path=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe
+  • no signing info identified, signing is skipped  signHook=false cscInfo=null
+  • building block map  blockMapFile=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe.blockmap
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$
