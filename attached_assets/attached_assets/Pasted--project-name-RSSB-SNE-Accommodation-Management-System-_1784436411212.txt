@@ -1,0 +1,186 @@
+{
+  "project": {
+    "name": "RSSB SNE Accommodation Management System",
+    "type": "Production Desktop Application",
+    "platform": "Windows",
+    "framework": "Electron",
+    "purpose": "Accommodation Management System"
+  },
+  "client": {
+    "organization": "Radha Swami Satsang Beas",
+    "address": "Dera Baba Jaimal Singh",
+    "department": "SNE Old Enclosure Accommodation",
+    "centre": "Rudrapur, Uttarakhand",
+    "helpline": "+91 8923940501"
+  },
+  "logo": {
+    "instruction": "The user will upload the official RSSB logo in this Replit project. Use it for the login page, dashboard, header, sidebar, about page, application icon, Electron icon, Windows installer icon, splash screen, desktop shortcut, and Start Menu shortcut. Do not replace or modify the logo without permission."
+  },
+  "github": {
+    "instruction": "Do not ask for GitHub tokens. Read all GitHub credentials from Replit Secrets. Never hardcode secrets or commit them to GitHub. If a repository URL is not yet available, explain what is needed and wait."
+  },
+  "firebase": {
+    "instruction": "Before integrating Firebase, explain to the user in detail how to create a Firebase account, create a project, enable Firestore Database, enable Email/Password Authentication, create a Web App, obtain the Firebase configuration values, and store them securely in Replit Secrets. Explain any additional Firebase Admin credentials only if they are required. Pause until the user provides the required configuration."
+  },
+  "authentication": {
+    "roles": [
+      "Super Admin",
+      "Admin"
+    ],
+    "super_admin_permissions": [
+      "Create Admin",
+      "Edit Admin",
+      "Delete Admin",
+      "Disable Admin",
+      "Reset Admin Password"
+    ],
+    "admin_permissions": [
+      "Dashboard",
+      "Manage Applicants",
+      "Reports",
+      "Export",
+      "Backup"
+    ]
+  },
+  "admin_creation": {
+    "fields": [
+      "Full Name",
+      "Address",
+      "Phone Number",
+      "Designation",
+      "Username",
+      "Password",
+      "Status",
+      "Created Date"
+    ]
+  },
+  "applicant": {
+    "fields": [
+      "Applicant Name",
+      "Age",
+      "Phone Number",
+      "Gender",
+      "Medical Issues",
+      "Handicap",
+      "Couple or Single",
+      "Centre Name",
+      "Centre Address",
+      "Guardian/Nominee",
+      "Date of Arrival",
+      "Time of Arrival",
+      "Created By",
+      "Created Date"
+    ],
+    "features": [
+      "Add",
+      "Edit",
+      "Delete",
+      "View",
+      "Search",
+      "Filter"
+    ]
+  },
+  "dashboard": {
+    "widgets": [
+      "Total Applicants",
+      "Today's Applicants",
+      "Male Count",
+      "Female Count",
+      "Transgender Count",
+      "Handicap Count",
+      "Couple Count",
+      "Single Count",
+      "Total Admins",
+      "Recent Applicants",
+      "Recent Activity"
+    ]
+  },
+  "header": {
+    "show_on_every_page": true,
+    "items": [
+      "Logo",
+      "Organization Name",
+      "Address",
+      "Department",
+      "Centre",
+      "Helpline Number"
+    ]
+  },
+  "sidebar": [
+    "Dashboard",
+    "Applicants",
+    "Add Applicant",
+    "Reports",
+    "Export",
+    "Backup",
+    "Admins",
+    "Settings",
+    "About",
+    "Logout"
+  ],
+  "reports": {
+    "export": [
+      "Excel",
+      "PDF",
+      "Print"
+    ],
+    "backup": [
+      "Manual Backup",
+      "Restore Backup"
+    ]
+  },
+  "ui": {
+    "theme": "Professional Government Office Style",
+    "requirements": [
+      "Responsive",
+      "Modern",
+      "Fast",
+      "Simple",
+      "Accessible",
+      "Professional"
+    ]
+  },
+  "electron": {
+    "requirements": [
+      "Generate Windows EXE",
+      "Generate Windows Installer",
+      "Create Desktop Shortcut",
+      "Create Start Menu Shortcut",
+      "Include Uninstaller",
+      "Include License Agreement"
+    ]
+  },
+  "security": {
+    "requirements": [
+      "Never hardcode credentials",
+      "Use Replit Secrets",
+      "Validate user input",
+      "Hash passwords",
+      "Protect against common vulnerabilities"
+    ]
+  },
+  "quality": {
+    "requirements": [
+      "Write clean, maintainable code",
+      "Use a modular project structure",
+      "Avoid duplicate code",
+      "Document important modules",
+      "Handle errors gracefully"
+    ]
+  },
+  "testing": {
+    "instruction": "Test all major features before considering the project complete, including authentication, applicant management, search, export, backup, restore, Firebase connectivity, Electron build, and Windows installer. Fix all identified issues before marking the project ready."
+  },
+  "deliverables": [
+    "Complete Source Code",
+    "Electron Desktop Application",
+    "Windows Installer",
+    "README",
+    "Installation Guide",
+    "Firebase Setup Guide",
+    "User Manual",
+    "Admin Manual",
+    "Backup Guide",
+    "Restore Guide"
+  ]
+}

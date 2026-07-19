@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "RSSB SNE Accommodation Management System"
+version = "1.0.0"
+id = "artifacts/rssb-ams"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24949
+
+[services.development]
+run = "pnpm --filter @workspace/rssb-ams run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/rssb-ams", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/rssb-ams/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24949"
+BASE_PATH = "/"

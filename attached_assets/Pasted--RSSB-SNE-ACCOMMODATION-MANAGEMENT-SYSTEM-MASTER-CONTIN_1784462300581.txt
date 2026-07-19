@@ -1,0 +1,587 @@
+# RSSB SNE ACCOMMODATION MANAGEMENT SYSTEM
+# MASTER CONTINUATION + VERIFICATION + FINALIZATION PROMPT
+
+IMPORTANT
+
+This is NOT a new project.
+
+This is NOT a rebuild.
+
+This is NOT a redesign.
+
+This is a continuation of the previous work.
+
+Read the entire project first.
+
+Understand every file before making any modifications.
+
+############################################################
+
+STEP 1
+
+Open Replit Secrets first.
+
+Please check Replit Secrets.
+
+The following are already stored there:
+
+• GitHub Repository URL
+• GitHub Personal Access Token
+• Firebase Configuration
+• Environment Variables
+
+Use those existing values.
+
+Do NOT ask me for GitHub URL.
+
+Do NOT ask me for GitHub Token.
+
+Do NOT generate a new Firebase project.
+
+Do NOT replace Firebase.
+
+If any Firebase information is missing, ask me before changing anything.
+
+############################################################
+
+STEP 2
+
+Inspect the complete existing project.
+
+Understand everything before editing.
+
+Inspect:
+
+Electron
+
+React
+
+Vite
+
+Firebase Authentication
+
+Cloud Firestore
+
+Electron Main
+
+Electron Preload
+
+Electron Builder
+
+Package.json
+
+Authentication
+
+Routing
+
+Context
+
+Services
+
+Dashboard
+
+Admin Portal
+
+Super Admin Portal
+
+Applicant Module
+
+Reports
+
+Settings
+
+Backup
+
+Every page
+
+Every component
+
+Every API
+
+Every Firestore collection
+
+Everything.
+
+############################################################
+
+STEP 3
+
+Do NOT rebuild.
+
+Keep everything.
+
+Keep UI.
+
+Keep Design.
+
+Keep Existing Pages.
+
+Keep Existing Structure.
+
+Keep Existing Features.
+
+Only repair and improve the existing project.
+
+############################################################
+
+STEP 4
+
+Read every previous modification.
+
+Check whether every requested feature has actually been implemented.
+
+Do NOT assume anything.
+
+Verify everything practically.
+
+############################################################
+
+STEP 5
+
+LOGIN SYSTEM
+
+There must only be
+
+Username
+
+Password
+
+No Email field.
+
+Workflow
+
+User enters Username
+
+↓
+
+System finds corresponding account
+
+↓
+
+Authenticates internally using Firebase Authentication
+
+↓
+
+Opens dashboard.
+
+Users must never type Email.
+
+############################################################
+
+STEP 6
+
+DEFAULT SUPER ADMIN
+
+Default Username
+
+bhagwan01
+
+Default Password
+
+Bhagwan_01
+
+Log in practically using these credentials.
+
+Do not only inspect the code.
+
+Actually log in.
+
+Verify everything.
+
+############################################################
+
+STEP 7
+
+SUPER ADMIN
+
+After login
+
+Verify every page.
+
+Verify every menu.
+
+Verify every button.
+
+Verify every popup.
+
+Verify every form.
+
+Verify every API.
+
+Verify every Firestore operation.
+
+############################################################
+
+STEP 8
+
+CREATE ADMIN
+
+Log in as Super Admin.
+
+Actually create a new Admin.
+
+Fill every field.
+
+Example
+
+Full Name
+
+Username
+
+Password
+
+Phone
+
+Address
+
+Designation
+
+Submit.
+
+Verify
+
+Firebase Authentication user created.
+
+Firestore document created.
+
+Role assigned correctly.
+
+Status assigned correctly.
+
+Username stored correctly.
+
+############################################################
+
+STEP 9
+
+ADMIN LOGIN
+
+Logout.
+
+Login using the newly created Admin.
+
+Verify
+
+Dashboard opens.
+
+Correct permissions.
+
+Cannot access Super Admin pages.
+
+No errors.
+
+############################################################
+
+STEP 10
+
+APPLICANT MODULE
+
+Create Applicant.
+
+Edit Applicant.
+
+Delete Applicant.
+
+Search Applicant.
+
+Verify Firestore writes.
+
+Verify Firestore reads.
+
+Verify validations.
+
+Verify UI updates.
+
+############################################################
+
+STEP 11
+
+TEST EVERY MODULE
+
+Dashboard
+
+Applicants
+
+Admin
+
+Reports
+
+Backup
+
+Settings
+
+Authentication
+
+Logout
+
+Navigation
+
+Firestore
+
+Firebase Authentication
+
+Loading
+
+Error Handling
+
+Every page.
+
+############################################################
+
+STEP 12
+
+SEARCH FOR BUGS
+
+Search entire project for
+
+TODO
+
+FIXME
+
+console.error
+
+console.log
+
+Unhandled Promise
+
+TypeScript Errors
+
+Warnings
+
+Build Warnings
+
+Unused imports
+
+Unused variables
+
+Memory leaks
+
+Duplicate code
+
+Dead code
+
+Broken routing
+
+Broken assets
+
+Broken icons
+
+Broken images
+
+Broken navigation
+
+Broken buttons
+
+Broken dialogs
+
+Broken forms
+
+Broken validation
+
+Broken Firebase calls
+
+Broken Firestore queries
+
+Everything.
+
+Fix everything.
+
+############################################################
+
+STEP 13
+
+ELECTRON
+
+This is the highest priority.
+
+Current issue
+
+Production EXE sometimes opens with a completely blank white screen.
+
+Investigate everything.
+
+Check
+
+Electron Main Process
+
+BrowserWindow
+
+Preload
+
+Renderer
+
+React Rendering
+
+Vite Build
+
+Asset Paths
+
+Routing
+
+Production Paths
+
+Context Isolation
+
+Node Integration
+
+Build Output
+
+Loading Order
+
+Crash Logs
+
+Console Logs
+
+Unhandled Exceptions
+
+Everything.
+
+Find the exact root cause.
+
+Fix it permanently.
+
+############################################################
+
+STEP 14
+
+BUILD TEST
+
+Create production build.
+
+Generate EXE.
+
+Install EXE.
+
+Launch EXE.
+
+Login.
+
+Close EXE.
+
+Open again.
+
+Repeat many times.
+
+Restart Windows if necessary.
+
+Verify
+
+No Blank Screen.
+
+No White Screen.
+
+No Crash.
+
+No Missing Assets.
+
+No Routing Failure.
+
+No Firebase Failure.
+
+Everything must work every time.
+
+############################################################
+
+STEP 15
+
+PERFORMANCE
+
+Improve
+
+Startup speed
+
+Loading speed
+
+Rendering
+
+Database calls
+
+Electron startup
+
+Memory usage
+
+Error handling
+
+Logging
+
+Overall stability.
+
+############################################################
+
+STEP 16
+
+GITHUB
+
+After all testing passes
+
+Commit every change.
+
+Push every change to the GitHub repository using the credentials already available in Replit Secrets.
+
+Ensure GitHub is completely updated.
+
+############################################################
+
+STEP 17
+
+FINAL VERIFICATION
+
+Before finishing
+
+Run through the application as a real user.
+
+Test every workflow.
+
+Test every button.
+
+Test every page.
+
+Test every permission.
+
+Test every login.
+
+Test every database operation.
+
+Do not finish until every feature has been verified.
+
+############################################################
+
+STEP 18
+
+FINAL REPORT
+
+Provide
+
+1. List of every file modified.
+
+2. List of every bug fixed.
+
+3. List of every feature added.
+
+4. List of every feature repaired.
+
+5. Confirmation that GitHub has been updated.
+
+6. Confirmation that the production EXE has been tested.
+
+7. Confirmation that the blank white screen issue has been permanently resolved.
+
+8. Confirmation that the Super Admin workflow was tested.
+
+9. Confirmation that Admin creation was tested.
+
+10. Confirmation that Admin login was tested.
+
+11. Confirmation that Applicant creation was tested.
+
+12. Mention any remaining issues, if any.
+
+IMPORTANT
+
+Do not stop after making code changes.
+
+Actually test the application end-to-end.
+
+Treat this as a production-quality release.
+
+Do not mark the task complete until all requested functionality has been implemented, verified, and committed.

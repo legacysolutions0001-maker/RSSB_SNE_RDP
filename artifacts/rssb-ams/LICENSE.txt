@@ -1,0 +1,9 @@
+RSSB SNE Accommodation Management System
+Copyright © 2025 Radha Swami Satsang Beas
+
+This software is developed exclusively for internal use by the SNE Old Enclosure
+Accommodation Department, Radha Swami Satsang Beas, Rudrapur, Uttarakhand.
+
+Unauthorized copying, distribution, or use of this software is strictly prohibited.
+
+For support, contact: +91 8923940501

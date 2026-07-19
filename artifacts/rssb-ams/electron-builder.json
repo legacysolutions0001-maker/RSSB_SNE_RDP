@@ -1,0 +1,38 @@
+{
+  "appId": "com.rssb.sne.ams",
+  "productName": "RSSB SNE Accommodation Management System",
+  "copyright": "Copyright © 2025 Radha Swami Satsang Beas",
+  "asar": true,
+  "directories": {
+    "output": "release",
+    "buildResources": "electron"
+  },
+  "files": [
+    "dist/public/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "extraMetadata": {
+    "main": "electron/main.js"
+  },
+  "win": {
+    "target": [
+      { "target": "nsis", "arch": ["x64"] }
+    ],
+    "icon": "electron/icon.png",
+    "requestedExecutionLevel": "asInvoker"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowDirChange": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "RSSB SNE AMS",
+    "installerIcon": "electron/icon.png",
+    "uninstallerIcon": "electron/icon.png",
+    "license": "LICENSE.txt",
+    "deleteAppDataOnUninstall": false,
+    "menuCategory": "RSSB"
+  },
+  "publish": null
+}
