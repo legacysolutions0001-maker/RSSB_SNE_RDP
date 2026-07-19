@@ -1,0 +1,71 @@
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ cat > pnpm-workspace.yaml << 'ENDOFFILE'
+packages:
+  - artifacts/*
+  - lib/*
+  - lib/integrations/*
+  - scripts
+catalog:
+  '@replit/vite-plugin-cartographer': ^0.5.21
+  '@replit/vite-plugin-dev-banner': ^0.1.1
+  '@replit/vite-plugin-runtime-error-modal': ^0.0.6
+  '@tailwindcss/vite': ^4.1.14
+  '@tanstack/react-query': ^5.90.21
+  '@types/node': ^25.3.3
+  '@types/react': ^19.2.0
+  '@types/react-dom': ^19.2.0
+  '@vitejs/plugin-react': ^5.0.4
+  class-variance-authority: ^0.7.1
+  clsx: ^2.1.1
+  drizzle-orm: ^0.45.2
+  framer-motion: ^12.23.24
+  lucide-react: ^0.545.0
+  react: 19.1.0
+  react-dom: 19.1.0
+  tailwind-merge: ^3.3.1
+  tailwindcss: ^4.1.14
+  tsx: ^4.21.0
+  vite: ^7.3.2
+  wouter: ^3.3.5
+  zod: ^3.25.76
+autoInstallPeers: false
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+  - electron
+  - msw
+  - unrs-resolver
+ENDOFFILE
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ rm -rf node_modules
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ pnpm install --no-frozen-lockfile
+ ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In : "@workspace/api-client-react@workspace:*" is in the dependencies but no package named "@workspace/api-client-react" is present in the workspace
+
+This error happened while installing a direct dependency of C:\Users\bhullar\RSSB_SNE_RDP\artifacts\rssb-ams
+
+Packages found in the workspace:
+Progress: resolved 22, reused 21, downloaded 0, added 0
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ cd artifacts/rssb-ams
+pnpm run build
+bash: cd: artifacts/rssb-ams: No such file or directory
+
+> @workspace/rssb-ams@1.0.0 build C:\Users\bhullar\RSSB_SNE_RDP\artifacts\rssb-ams
+> vite build --config vite.config.ts
+
+'vite' is not recognized as an internal or external command,
+operable program or batch file.
+ ELIFECYCLE  Command failed with exit code 1.
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ pnpm exec electron-builder build --win --x64
+'electron-builder' is not recognized as an internal or external command,
+operable program or batch file.
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "electron-builder" not found
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$
