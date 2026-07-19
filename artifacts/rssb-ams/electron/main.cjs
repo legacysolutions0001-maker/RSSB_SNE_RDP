@@ -1,3 +1,4 @@
+'use strict';
 const { app, BrowserWindow, shell } = require('electron');
 const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
@@ -10,8 +11,6 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 app.disableHardwareAcceleration();
 
 // ── Single-instance lock ─────────────────────────────────────────────────────
-// Prevents blank screen caused by a second Electron instance competing with
-// the first for resources (GPU process, IPC ports, etc.).
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
   app.quit();
@@ -25,9 +24,7 @@ if (!gotTheLock) {
 
   let mainWindow = null;
 
-  // ── Create window ──────────────────────────────────────────────────────────
   function createWindow() {
-    // Guard: don't create if window already exists and is alive
     if (mainWindow && !mainWindow.isDestroyed()) {
       mainWindow.focus();
       return;
@@ -39,17 +36,14 @@ if (!gotTheLock) {
       minWidth: 1024,
       minHeight: 700,
       title: 'RSSB SNE Accommodation Management System',
-      icon: path.join(__dirname, 'icon.png'),
+      icon: path.join(__dirname, 'icon.ico'),
       webPreferences: {
         nodeIntegration: false,
         contextIsolation: true,
-        preload: path.join(__dirname, 'preload.js'),
-        // Required for file:// protocol to load local assets correctly
+        preload: path.join(__dirname, 'preload.cjs'),
         webSecurity: false,
-        // Disable spellcheck to reduce resource usage
         spellcheck: false,
       },
-      // Show window hidden; only show once renderer is ready (prevents blank flash)
       show: false,
       backgroundColor: '#f5f0eb',
     });
@@ -63,12 +57,10 @@ if (!gotTheLock) {
       mainWindow.loadFile(indexPath).catch((err) => {
         console.error('[RSSB AMS] Failed to load index.html:', err.message);
         console.error('[RSSB AMS] Tried path:', indexPath);
-        // Retry after a short delay
         setTimeout(() => {
           if (mainWindow && !mainWindow.isDestroyed()) {
             mainWindow.loadFile(indexPath).catch((e) => {
               console.error('[RSSB AMS] Retry failed:', e.message);
-              // Last-resort: show an error page inline
               mainWindow.loadURL(
                 `data:text/html,<h2 style="font-family:sans-serif;color:red;padding:40px">` +
                 `Failed to load app.<br><small>${e.message}</small></h2>`
@@ -79,15 +71,11 @@ if (!gotTheLock) {
       });
     }
 
-    // ── Only show window once it's fully rendered (no blank flash) ─────────
     mainWindow.once('ready-to-show', () => {
       mainWindow.show();
       mainWindow.maximize();
     });
 
-    // ── Renderer crash recovery ──────────────────────────────────────────────
-    // If the renderer crashes (blank screen), reload it automatically instead
-    // of leaving the user with a white window.
     mainWindow.webContents.on('render-process-gone', (_event, details) => {
       console.error('[RSSB AMS] Renderer gone:', details.reason, details.exitCode);
       if (mainWindow && !mainWindow.isDestroyed()) {
@@ -102,10 +90,8 @@ if (!gotTheLock) {
       }
     });
 
-    // ── Catch any errors loading the page ────────────────────────────────────
     mainWindow.webContents.on('did-fail-load', (_event, errorCode, errorDescription, validatedURL) => {
       console.error('[RSSB AMS] did-fail-load:', errorCode, errorDescription, validatedURL);
-      // If not the initial load failure (handled by loadFile catch), try once more
       if (errorCode !== -3 && !isDev) {
         const indexPath = path.join(__dirname, '..', 'dist', 'public', 'index.html');
         setTimeout(() => {
@@ -116,7 +102,6 @@ if (!gotTheLock) {
       }
     });
 
-    // Open external links in the system browser, not a new Electron window
     mainWindow.webContents.setWindowOpenHandler(({ url }) => {
       shell.openExternal(url);
       return { action: 'deny' };
@@ -127,7 +112,6 @@ if (!gotTheLock) {
     });
   }
 
-  // ── Unhandled exception logging ──────────────────────────────────────────
   process.on('uncaughtException', (err) => {
     console.error('[RSSB AMS] Uncaught exception:', err);
   });

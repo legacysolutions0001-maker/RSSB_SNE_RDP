@@ -1,0 +1,85 @@
+name: Build Windows Installer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Remove workspace-only dependency
+        working-directory: artifacts/rssb-ams
+        shell: node {0}
+        run: |
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          delete pkg.devDependencies['@workspace/api-client-react'];
+          // On Windows signAndEditExecutable works fine — re-enable icon embedding
+          pkg.build.win.signAndEditExecutable = true;
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          console.log('package.json patched for Windows build');
+
+      - name: Install dependencies
+        working-directory: artifacts/rssb-ams
+        run: npm install --legacy-peer-deps
+
+      - name: Build Vite production bundle
+        working-directory: artifacts/rssb-ams
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Build Windows NSIS installer
+        working-directory: artifacts/rssb-ams
+        run: npm exec -- electron-builder build --win --x64
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          CSC_LINK: ""
+
+      - name: List release output
+        shell: bash
+        run: ls -lh "artifacts/rssb-ams/release/"
+
+      - name: Upload installer as Actions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RSSB-SNE-AMS-Windows-Setup
+          path: artifacts/rssb-ams/release/*.exe
+          retention-days: 90
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: windows-latest
+          name: "RSSB SNE AMS — Windows Installer (Latest)"
+          body: |
+            ## RSSB SNE Accommodation Management System
+            **Auto-built Windows installer from the latest source.**
+
+            ### How to install
+            1. Download the `.exe` file below
+            2. Run it — click *Next* through the wizard
+            3. Launch **RSSB SNE AMS** from the Desktop or Start Menu
+
+            ### Login
+            | Field | Value |
+            |-------|-------|
+            | Username | `bhagwan01` |
+            | Password | `Bhagwan_01` |
+          files: artifacts/rssb-ams/release/*.exe
+          make_latest: true
+          prerelease: false

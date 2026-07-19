@@ -1,0 +1,123 @@
+You are responsible for delivering a fully working Windows EXE for this Electron + React + Firebase project.
+
+IMPORTANT
+
+Do NOT ask me to:
+
+run Git Bash
+run CMD
+run PowerShell
+execute terminal commands
+install packages manually
+edit configuration files manually
+debug Electron manually
+debug Vite manually
+debug Node manually
+edit package.json manually
+modify build scripts manually
+fix Electron Builder manually
+
+I do not want to perform any coding or terminal work.
+
+Everything must be done automatically by you.
+
+Your responsibilities
+
+Analyze the complete project.
+
+Find every error.
+
+Fix every error.
+
+Upgrade or downgrade packages if required.
+
+Repair:
+
+Electron
+React
+Vite
+Electron Builder
+package.json
+ES Module/CommonJS issues
+require/import issues
+preload scripts
+main process
+renderer process
+icons
+Firebase configuration
+build configuration
+Windows packaging
+startup errors
+white screen
+black screen
+JavaScript runtime errors
+installer issues
+executable issues
+
+Do not stop after fixing one error.
+
+Continue until the project builds successfully.
+
+Main Goal
+
+Produce a fully working Windows EXE.
+
+The EXE must:
+
+install correctly
+launch correctly
+never show a JavaScript error
+never show a white screen
+never show a black screen
+never crash
+never fail because of module loading
+never fail because of ESM/CommonJS
+never fail because of require/import issues
+Testing
+
+You must fully test the application before giving it to me.
+
+Verify that:
+
+the installer works
+installation succeeds
+application launches
+splash screen works (if present)
+login page opens
+Firebase initializes
+authentication works
+navigation works
+renderer loads correctly
+Electron main process works
+Electron preload works
+production build works
+packaged application works
+
+If anything fails, automatically fix it and rebuild.
+
+Repeat this process until every test passes.
+
+Final Deliverable
+
+Do NOT give me:
+
+code
+shell commands
+CMD commands
+PowerShell commands
+Git Bash commands
+terminal commands
+package.json edits
+Electron configuration edits
+debugging steps
+explanations
+
+The only thing I want is:
+
+A fully tested Windows EXE.
+The complete updated project with all fixes already applied.
+Confirmation that the EXE was tested successfully and launches without runtime errors.
+
+Do not ask me to perform any manual steps.
+
+Continue working until the project is complete and the EXE is fully functional.

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# Environment secrets — never commit real credentials
+.env
+.env.production
+.env.local
+
+# TypeScript cache
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
