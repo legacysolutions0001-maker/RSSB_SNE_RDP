@@ -1,0 +1,41 @@
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ pnpm run build
+
+> @workspace/rssb-ams@1.0.0 build C:\Users\bhullar\RSSB_SNE_RDP\artifacts\rssb-ams
+> vite build --config vite.config.ts
+
+vite v7.3.6 building client environment for production...
+✓ 2096 modules transformed.
+dist/public/index.html                              1.58 kB │ gzip:   0.58 kB
+dist/public/assets/index-SbN2DUod.css             105.68 kB │ gzip:  17.44 kB
+dist/public/assets/purify.es-VaSPOPhr.js           28.72 kB │ gzip:  10.77 kB
+dist/public/assets/index.es-Jr-i9aMO.js           158.79 kB │ gzip:  53.02 kB
+dist/public/assets/html2canvas.esm-DXEQVQnt.js    201.04 kB │ gzip:  47.43 kB
+dist/public/assets/index-D-u6ht6u.js            1,706.83 kB │ gzip: 542.86 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 19.38s
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$ pnpm exec electron-builder build --win --x64
+  • electron-builder  version=25.1.8 os=10.0.26200
+  • loaded configuration  file=package.json ("build" field)
+  • writing effective config  file=release\builder-effective-config.yaml
+  • executing @electron/rebuild  electronVersion=36.9.5 arch=x64 buildFromSource=false appDir=./
+  • installing native dependencies  arch=x64
+  • completed installing native dependencies
+  • packaging       platform=win32 arch=x64 electron=36.9.5 appOutDir=release\win-unpacked
+  • updating asar integrity executable resource  executablePath=release\win-unpacked\RSSB SNE Accommodation Management System.exe
+  • building        target=nsis file=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe archs=x64
+ oneClick=false perMachine=false
+  • signing with signtool.exe  path=release\__uninstaller-nsis-@workspacerssb-ams.exe
+  • no signing info identified, signing is skipped  signHook=false cscInfo=null
+  • signing with signtool.exe  path=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe
+  • no signing info identified, signing is skipped  signHook=false cscInfo=null
+  • building block map  blockMapFile=release\RSSB SNE Accommodation Management System Setup 1.0.0.exe.blockmap
+
+bhullar@KISAN_AGRO_BZP MINGW64 ~/RSSB_SNE_RDP/artifacts/rssb-ams (main)
+$
