@@ -4,7 +4,6 @@
   "description": "RSSB SNE Accommodation Management System",
   "author": "Radha Swami Satsang Beas",
   "private": true,
-  "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
@@ -30,8 +29,7 @@
       "package.json"
     ],
     "extraMetadata": {
-      "main": "electron/main.cjs",
-      "type": "commonjs"
+      "main": "electron/main.cjs"
     },
     "win": {
       "target": [
